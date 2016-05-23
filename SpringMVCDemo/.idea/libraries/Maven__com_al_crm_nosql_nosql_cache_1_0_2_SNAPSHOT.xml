@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.al.crm.nosql:nosql-cache:1.0.2-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/al/crm/nosql/nosql-cache/1.0.2-SNAPSHOT/nosql-cache-1.0.2-20150421.095559-4.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/al/crm/nosql/nosql-cache/1.0.2-SNAPSHOT/nosql-cache-1.0.2-20150421.095559-4-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/al/crm/nosql/nosql-cache/1.0.2-SNAPSHOT/nosql-cache-1.0.2-20150421.095559-4-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 数据库配置 -->
+    <!--单数据源-->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+          destroy-method="close">
+        <property name="driverClass" value="${driverClass}"></property>
+        <property name="jdbcUrl" value="${crmDatabase}"></property>
+        <property name="user" value="${crmAppUser}"></property>
+        <property name="password" value="${crmAppUserPwd}"></property>
+        <property name="acquireIncrement" value="${acquireIncrement}"></property>
+        <property name="maxIdleTime" value="${maxIdleTime}"></property>
+        <property name="initialPoolSize" value="${initialPoolSize}"></property>
+        <property name="maxPoolSize" value="${maxPoolSize}"></property>
+        <property name="minPoolSize" value="${minPoolSize}"></property>
+        <property name="maxStatements" value="${maxStatements}"></property>
+        <property name="maxStatementsPerConnection" value="${maxStatementsPerConnection}"></property>
+    </bean>
+
+</beans>

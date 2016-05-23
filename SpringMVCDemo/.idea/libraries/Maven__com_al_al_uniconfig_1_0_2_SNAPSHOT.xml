@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.al:al-uniconfig:1.0.2-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/al/al-uniconfig/1.0.2-SNAPSHOT/al-uniconfig-1.0.2-20140707.073834-15.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/al/al-uniconfig/1.0.2-SNAPSHOT/al-uniconfig-1.0.2-20140707.073834-15-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/al/al-uniconfig/1.0.2-SNAPSHOT/al-uniconfig-1.0.2-20140707.073834-15-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+     http://www.springframework.org/schema/beans
+     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+     http://www.springframework.org/schema/tx
+     http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+
+    <!-- define the SqlSessionFactory-->
+    <bean id="ecspSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="configLocation" value="classpath:/datasource/configuration.xml" />
+        <property name="mapperLocations">
+            <list>
+                <!-- 表示目录中，以Mapper.xml结尾所有文件 -->
+                <value>classpath:mapper/*Mapper.xml</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- 扩展：持久层映射接口扫描类 -->
+    <!--<bean class="com.al.persistence.ExtMapperScannerConfigurer">
+        <property name="basePackage" value="com.test.service.dao"/>
+    </bean>-->
+
+    <!-- 原生：Mapper接口所在包名，Spring会自动查找其下的Mapper -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.test.service.dao" />
+    </bean>
+
+    <tx:annotation-driven transaction-manager="ecsp-transactionManager" proxy-target-class="true"/>
+
+    <!-- transaction manager, use JtaTransactionManager for global tx-->
+    <bean id="ecsp-transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+        <!--<qualifier value="ecspTransaction"/>-->
+    </bean>
+
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <constructor-arg>
+            <ref bean="dataSource"/>
+        </constructor-arg>
+    </bean>
+
+    <!-- 单数据源 -->
+    <import resource="classpath:datasource/datasource-context-scope.xml"/>
+    <!-- JNDI数据源 -->
+    <!--<import resource="classpath:datasource/datasource-context.xml"/>-->
+</beans>

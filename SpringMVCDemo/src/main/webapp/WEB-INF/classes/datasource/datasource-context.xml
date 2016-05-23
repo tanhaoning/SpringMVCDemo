@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!-- 配置多数据源 -->
+    <bean id="crm_lte_app1" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName">
+            <value>jdbc/oracle/lte/write/crmapp01</value>
+        </property>
+        <property name="resourceRef">
+            <value>true</value>
+        </property>
+    </bean>
+    <bean id="crm_lte_app2" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName">
+            <value>jdbc/oracle/lte/write/crmapp02</value>
+        </property>
+        <property name="resourceRef">
+            <value>true</value>
+        </property>
+    </bean>
+    <bean id="crm_lte_app3" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName">
+            <value>jdbc/oracle/lte/write/crmapp03</value>
+        </property>
+        <property name="resourceRef">
+            <value>true</value>
+        </property>
+    </bean>
+    <bean id="crm_lte_app4" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName">
+            <value>jdbc/oracle/lte/write/crmapp04</value>
+        </property>
+        <property name="resourceRef">
+            <value>true</value>
+        </property>
+    </bean>
+
+    <!--  持久层多数据源时的操作主类   -->
+    <bean id="dataSource" class="com.test.dbroute.DataSourceRoute">
+        <property name="targetDataSources">
+            <map>
+                <entry key="guangdong" value-ref="crm_lte_app1"/>
+                <entry key="jiangsu" value-ref="crm_lte_app2"/>
+                <entry key="sichuan" value-ref="crm_lte_app3"/>
+                <entry key="zhejiang" value-ref="crm_lte_app4"/>
+            </map>
+        </property>
+    </bean>
+
+</beans>

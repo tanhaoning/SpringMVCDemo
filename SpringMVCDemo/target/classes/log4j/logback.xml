@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+    <substitutionProperty name="log.base" value="logs/LteService"/>
+    <jmxConfigurator/>
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+        <encoding>UTF-8</encoding>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>%d{HH:mm:ss.SSS} %-5level thread:%t %logger{80} %n-%msg%n</pattern>
+        </layout>
+    </appender>
+    <!-- <appender name="portalLogFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+         <filter class="ch.qos.logback.core.filter.EvaluatorFilter">
+             <evaluator name="myEval_exception">
+                 <expression>
+                     message.contains("com.al.ecs.exception.AuthorityException")
+                     |message.contains("com.al.ecs.exception.SessionException")
+                 </expression>
+             </evaluator>
+             <onMatch>DENY</onMatch>
+             <onMismatch>ACCEPT</onMismatch>
+         </filter>
+         <file>${log.base}.log</file>
+         <encoding>UTF-8</encoding>
+         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+             <fileNamePattern>${log.base}.%d{yyyy-MM-dd}.log.zip</fileNamePattern>
+             <maxHistory>30</maxHistory>
+         </rollingPolicy>
+         <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+             <fileNamePattern>${log.base}.%i.log.zip</fileNamePattern>
+             <minIndex>1</minIndex>
+             <maxIndex>30</maxIndex>
+         </rollingPolicy>
+         <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+             <maxFileSize>2MB</maxFileSize>
+         </triggeringPolicy>
+         <layout class="ch.qos.logback.classic.PatternLayout">
+             <pattern>%X{user_ip} %-20(%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread]) %-5level %logger{80} - %msg%n</pattern>
+         </layout>
+     </appender>-->
+
+    <!-- false 表示此loger的打印信息不再向上级传递 -->
+    <root level="WARN"/>
+    <logger name="com.test" level="INFO" additivity="false">
+        <appender-ref ref="stdout"/>
+    </logger>
+    <logger name="com.web" level="INFO" additivity="false">
+        <appender-ref ref="stdout"/>
+    </logger>
+
+</configuration>

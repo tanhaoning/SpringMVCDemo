@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.al:al-notifier:1.0.1-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/al/al-notifier/1.0.1-SNAPSHOT/al-notifier-1.0.1-20140504.071305-18.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/al/al-notifier/1.0.1-SNAPSHOT/al-notifier-1.0.1-20140504.071305-18-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/al/al-notifier/1.0.1-SNAPSHOT/al-notifier-1.0.1-20140504.071305-18-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

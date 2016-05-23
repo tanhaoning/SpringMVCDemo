@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+    <display-name>SpringMVCTest</display-name>
+    <!--
+    <welcome-file-list>
+        <welcome-file>indexFor.jsp</welcome-file>
+    </welcome-file-list>
+    -->
+
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath*:/conf/applicationContext.xml</param-value>
+    </context-param>
+
+    <!-- 编码设置过虑器 -->
+    <filter>
+        <filter-name>character_encoding_filter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+        <init-param>
+            <param-name>forceEncoding</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>character_encoding_filter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!-- TestRequestFilter -->
+    <filter>
+        <filter-name>testRequestFilter</filter-name>
+        <filter-class>com.web.filter.TestRequestFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>testRequestFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!-- Log4j配置 -->
+    <!-- <context-param>
+         <param-name>log4jConfigLocation</param-name>
+         <param-value>classpath:log4j/log4j.properties</param-value>
+     </context-param>-->
+    <!-- logback配置 -->
+    <context-param>
+        <param-name>logbackConfigLocation</param-name>
+        <param-value>classpath:/log4j/logback.xml</param-value>
+    </context-param>
+    <!-- 扩展监听器 -->
+    <listener>
+        <listener-class>com.test.common.LogbackConfigListener</listener-class>
+    </listener>
+    <!-- 原生监听器 -->
+    <!--<listener>
+        <listener-class>ch.qos.logback.ext.spring.web.LogbackConfigListener</listener-class>
+    </listener>-->
+
+    <!-- Spring的log4j监听器 -->
+    <!--<listener>
+        <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+    </listener>-->
+    <listener>
+        <listener-class>com.web.listener.TestServletContextListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>com.web.listener.TestSessionListener</listener-class>
+    </listener>
+
+    <!-- 核心控制器 -->
+    <servlet>
+        <servlet-name>SpringMVCTestServlet</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath*:/conf/springmvctest_context.xml</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SpringMVCTestServlet</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>testServlet</servlet-name>
+        <servlet-class>com.test.servlet.TestServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>testServlet</servlet-name>
+        <url-pattern>/testServlet</url-pattern>
+    </servlet-mapping>
+    <!-- session超时定义,单位为分钟 -->
+    <session-config>
+        <session-timeout>45</session-timeout>
+    </session-config>
+
+    <error-page>
+        <error-code>400</error-code>
+        <location>/error/400.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/error/404.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>405</error-code>
+        <location>/error/405.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>403</error-code>
+        <location>/error/403.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/error/500.jsp</location>
+    </error-page>
+    <jsp-config>
+        <taglib>
+            <taglib-uri>oscache</taglib-uri>
+            <taglib-location>/WEB-INF/classes/tlds/page.tld</taglib-location>
+        </taglib>
+    </jsp-config>
+</web-app>

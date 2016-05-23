@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.al:al-common:1.0.1-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/al/al-common/1.0.1-SNAPSHOT/al-common-1.0.1-20150804.161138-32.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/al/al-common/1.0.1-SNAPSHOT/al-common-1.0.1-20150804.161138-32-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/al/al-common/1.0.1-SNAPSHOT/al-common-1.0.1-20150804.161138-32-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

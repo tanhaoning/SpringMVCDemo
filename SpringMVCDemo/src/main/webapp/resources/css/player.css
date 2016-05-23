@@ -1,0 +1,308 @@
+@keyframes rotate-disk {
+    100% {
+        transform: rotateZ(360deg);
+    }
+}
+
+@-webkit-keyframes rotate-disk {
+    100% {
+        -webkit-transform: rotateZ(360deg);
+    }
+}
+
+body {
+    margin: 0px;
+    overflow: hidden;
+}
+
+.bg {
+    background: url(../image/demo.jpg) center;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 110%;
+    width: 110%;
+    margin: -5%;
+    background-size: cover;
+    filter: url(blur.svg#blur);
+    -webkit-filter: blur(15px) brightness(0.6);
+    -moz-filter: blur(15px) brightness(0.6);
+    filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=10, MakeShadow=false); /* IE6~IE9 */
+    z-index: -1;
+}
+
+.title {
+    color: #fff;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 10%;
+    width: 100%;
+    z-index: 11;
+    background-color: rgba(253, 253, 253, 0.05);
+}
+
+.title .music-info {
+    position: absolute;
+    left: 50%;
+    margin: 0px -180px;
+    overflow: hidden;
+}
+
+.music-info .song, .artist {
+    font-size: 18px;
+    font-weight: lighter;
+    margin: 8px;
+}
+
+.music-info .artist {
+    font-size: 14px;
+    color: #C8C0CC;
+    margin-top: 4px;
+}
+
+.play-bord {
+    position: absolute;
+    overflow: hidden;
+    top: 10%;
+    width: 100%;
+    height: 90%;
+    color: white;
+}
+
+.disk-bg{
+    width: 282px;
+    height: 282px;
+    position: absolute;
+    left: 50%;
+    top: 64px;
+    margin: 0px -141px;
+    background-color: rgba(251, 251, 251, 0.08);
+    border-radius: 141px;
+}
+
+.disk-cover {
+    width: 280px;
+    height: 280px;
+    position: absolute;
+    left: 50%;
+    top: 65px;
+    margin: 0% -140px;
+}
+
+.disk-cover-animation{
+    animation: rotate-disk 20s infinite normal linear;
+    animation-play-state: paused;
+    -webkit-animation:rotate-disk 20s infinite normal linear;
+    -webkit-animation-play-state: paused;
+}
+
+.disk-transition{
+    transition: left 0.8s ease-in-out;
+    -webkit-transition: left 0.8s ease-in-out;
+}
+
+.disk-cover img {
+    display: block;
+    width: 100%;
+}
+
+.disk-cover .album {
+    width: 68%;
+    margin: 16%;
+}
+
+.disk-cover .disk-border {
+    position: absolute;
+    top: 0px;
+}
+
+.play-needle {
+    position: absolute;
+    top: -23px;
+    left: 50%;
+    margin: 0px -12px;
+    z-index: 10;
+    width: 100px;
+    transform-origin: 20px 20px;
+    transition: transform 0.4s;
+    -webkit-transform-origin: 20px 20px;
+    -webkit-transition: -webkit-transform 0.4s;
+}
+
+.pause-needle {
+    transform: rotateZ(-25deg);
+    -webkit-transform: rotateZ(-25deg);
+}
+
+.resume-needle {
+    transform: rotateZ(0deg);
+    -webkit-transform: rotateZ(0deg);
+}
+
+#player {
+    display: none;
+}
+
+.c-btn {
+    background-position: center;
+    display: inline-block;
+    -webkit-filter: brightness(0.9);
+}
+
+.c-btn:hover {
+    -webkit-filter: brightness(1);
+}
+
+.process {
+    width: 350px;
+    height: 50px;
+    position: absolute;
+    bottom: 100px;
+    margin: 0px -175px;
+    left: 50%;
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.process .process-bar {
+    position: absolute;
+    left: 36px;
+    width: 280px;
+    margin-top: 5px;
+    background-color: #615D5C;
+}
+
+.process-bar .rdy {
+    background-color: #B1ADAC;
+    height: 2px;
+
+}
+
+.process-bar .cur {
+    background-color: #FB0D0D;
+    height: 2px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.cur .process-btn {
+    cursor: pointer;
+    background-image: url(../image/process_btn.png);
+    background-size: cover;
+    position: absolute;
+    top: -9px;
+    right: -13px;
+    width: 22px;
+    height: 22px;
+    margin-left: -11px;
+}
+
+.process > span:first-child {
+    position: absolute;
+    left: 0px;
+}
+
+.process > span:last-child {
+    position: absolute;
+    right: 0px;
+}
+
+.control {
+    position: absolute;
+    text-align: center;
+    width: 350px;
+    bottom: 10px;
+    left: 50%;
+    margin: 0px -175px;
+}
+
+.control .c-btn {
+    cursor: pointer;
+    background-position: center;
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    margin: 20px 20px;
+}
+
+.control .c-btn.pre {
+    background-image: url(../image/play_btn_prev.png);
+}
+
+.control .c-btn.play, .c-btn.pause {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 10px;
+}
+
+.control .c-btn.play {
+    background-image: url(../image/play_rdi_btn_play.png);
+}
+
+.control .c-btn.pause {
+    background-image: url(../image/play_rdi_btn_pause.png);
+}
+
+.control .c-btn.next {
+    background-image: url(../image/play_btn_next.png);
+}
+
+@media screen and (max-height: 600px) {
+    .process {
+        width: 320px;
+        height: 20px;
+        position: absolute;
+        margin: 0px -160px;
+    }
+
+    .process .process-bar {
+        left: 40px;
+        width: 240px;
+    }
+
+    .disk-bg{
+        width: 252px;
+        height: 252px;
+        position: absolute;
+        left: 50%;
+        top: 50px;
+        margin: 0px -126px;
+        background-color: rgba(251, 251, 251, 0.08);
+        border-radius: 126px;
+    }
+
+    .disk-cover {
+        width: 250px;
+        height: 250px;
+        left: 50%;
+        top: 52px;
+        margin: 0px -125px;
+    }
+
+    .play-needle {
+        top: -20px;
+        margin: 0px -12px;
+        width: 85px;
+        transform-origin: 16px 16px;
+    }
+
+    .control .c-btn {
+        width: 45px;
+        height: 45px;
+        margin: 14px 14px;
+    }
+
+    .control .c-btn.play, .c-btn.pause {
+        width: 62px;
+        height: 62px;
+        margin-bottom: 8px;
+    }
+
+    .cur .process-btn {
+        width: 20px;
+        height: 20px;
+    }
+}
