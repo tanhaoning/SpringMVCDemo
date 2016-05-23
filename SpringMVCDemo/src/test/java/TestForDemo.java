@@ -56,4 +56,9 @@ public class TestForDemo {
             System.out.println(testDemoDAO.queryCountNum());
         }
     }
+
+    @Test
+    public void testForGit(){
+
+    }
 }
