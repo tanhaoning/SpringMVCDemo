@@ -299,7 +299,17 @@
         <dependency>
             <artifactId>nosql-cache</artifactId>
             <groupId>com.al.crm.nosql</groupId>
-            <version>1.0.2-SNAPSHOT</version>
+            <version>1.0.3-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.al.crm.nosql</groupId>
+            <artifactId>hbase-jdbc-driver</artifactId>
+            <version>1.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.al.crm</groupId>
+            <artifactId>al-telcom</artifactId>
+            <version>1.0.5</version>
         </dependency>
 
         <!-- aliyun -->
@@ -353,6 +363,10 @@
             <artifactId>druid</artifactId>
             <version>1.0.14</version>
         </dependency>-->
+        <dependency>
+            <groupId>com.al.ecs</groupId>
+            <artifactId>ecs-print</artifactId>
+        </dependency>
     </dependencies>
     <build>
         <finalName>SpringMVCDemo</finalName>
