@@ -1,6 +1,5 @@
 package com.test.aop;
 
-import com.sun.corba.se.impl.encoding.OSFCodeSetRegistry;
 import com.test.annotation.LogRecord;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -14,7 +13,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ResourceUtils;
-import org.springframework.web.context.request.RequestContextHolder;
 
 import java.io.File;
 import java.util.Collection;
@@ -32,12 +30,9 @@ public class LogRecordAspectJ {
     private static final Logger log = LoggerFactory.getLogger(LogRecordAspectJ.class);
     public static final String ASPECT_SERVICE_EXCUTION = "execution(* com.leanyu.lcsystem.service.*.*(..))";
 
-    //前置/后置/异常通知的函数都没有返回值,只有环绕通知有返回值
-
+    // 前置/后置/异常通知的函数都没有返回值,只有环绕通知有返回值
     /**
      * 方法调用之前
-     *
-     * @return
      */
     //@Before("within(com.test.controller.*) && @annotation(lr)")
     public void addLogInfoBefore(JoinPoint jp, LogRecord lr) {
@@ -50,8 +45,6 @@ public class LogRecordAspectJ {
 
     /**
      * 方法调用之后
-     *
-     * @return
      */
     //@After
     public Object addLogInfoAfter() {
@@ -60,8 +53,6 @@ public class LogRecordAspectJ {
 
     /**
      * 返回成功后调用,具有可以指定返回值
-     *
-     * @return
      */
     //@AfterReturning("within(com.test.controller.*) && @annotation(lr)")
     public void addLogInfoAfterReturning(JoinPoint jp, LogRecord lr) {
@@ -78,8 +69,6 @@ public class LogRecordAspectJ {
 
     /**
      * 环绕通知
-     *
-     * @return
      */
     @Around("within(com.test.controller.*) && @annotation(lr)")
     public Object addLogInfoAround(ProceedingJoinPoint pjp, LogRecord lr) throws Throwable {
@@ -108,8 +97,6 @@ public class LogRecordAspectJ {
 
     /**
      * 异常通知
-     *
-     * @return
      */
     //@AfterThrowing
     public Object addLogInfoAfterThrowing() {
