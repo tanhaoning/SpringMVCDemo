@@ -27,6 +27,7 @@
 		<plugin interceptor="com.al.crm.nosql.cache.ibatis.QueryCachingExecutorPlugin">
 			<property name="configLocation" value="soConfig.properties"/>
 		</plugin>
+		<!-- test -->
 
 		<!-- 拦截SQL执行时间 -->
 		<plugin interceptor="com.ibatisPlugin.RoundingRunningTime">
