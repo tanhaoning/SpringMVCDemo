@@ -24,9 +24,9 @@
 		<!--<plugin interceptor="com.al.persistence.plugin.ConstantInjector"/>-->
 		<!-- 字段自动映射到属性 使用mybatis自带的配置 -->
 		<!--<plugin interceptor="com.al.persistence.plugin.AutoResultMap" />-->
-		<plugin interceptor="com.al.crm.nosql.cache.ibatis.QueryCachingExecutorPlugin">
+		<!--<plugin interceptor="com.al.crm.nosql.cache.ibatis.QueryCachingExecutorPlugin">
 			<property name="configLocation" value="soConfig.properties"/>
-		</plugin>
+		</plugin>-->
 		<!-- test -->
 
 		<!-- 拦截SQL执行时间 -->

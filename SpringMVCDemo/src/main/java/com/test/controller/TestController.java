@@ -8,7 +8,6 @@ import com.test.dbroute.DBRouteContext;
 import com.test.model.JsonBean;
 import com.test.model.TestModel;
 import com.test.service.smo.ITestDemoSMO;
-import net.sf.json.JSONObject;
 import org.apache.commons.collections.MapUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,7 +21,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
