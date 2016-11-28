@@ -40,7 +40,7 @@ public class LoginController {
     private static final Logger log = LoggerFactory.getLogger(LoginController.class);
 
     @Autowired
-    @Qualifier("com.test.service.smo.ILoginBMO")
+    @Qualifier("com.test.service.bmo.ILoginBMO")
     private ILoginBMO loginBMO;
 
     @Autowired
@@ -125,26 +125,6 @@ public class LoginController {
         return "/indexFor";
     }
 
-    @RequestMapping(value = "/querySysParam", method = {RequestMethod.GET})
-    public String querySysParam(HttpServletRequest request) {
-        String areaId = request.getParameter("areaId");
-        Map<String, Object> resultMap = testDemoSMO.querySysParam(areaId);
-        if (resultMap != null) {
-            System.out.println(resultMap);
-            return "/bootstrap/login";
-        }
-        return null;
-    }
-
-    @RequestMapping(value = "/queryCountNum", method = {RequestMethod.GET})
-    public String queryCountNum(HttpServletRequest request) {
-        String dbKey = request.getParameter("dbKey");
-        DBRouteContext.setName(dbKey);
-        int countNum = testDemoSMO.queryCountNum();
-        System.out.println("输出结果【" + dbKey + "】为【" + countNum + "】");
-        return "/bootstrap/login";
-    }
-
     @AuthValid(validate = true)
     @RequestMapping(value = "/testLog4j", method = {RequestMethod.GET, RequestMethod.POST})
     public void testLog4j() {
@@ -156,8 +136,4 @@ public class LoginController {
         System.out.println("Hello World!");
     }
 
-    @RequestMapping(value = "/setCookie", method = {RequestMethod.GET, RequestMethod.POST})
-    public void setCookie() {
-
-    }
 }
