@@ -7,7 +7,7 @@ import com.test.annotation.LogRecord;
 import com.test.dbroute.DBRouteContext;
 import com.test.model.JsonBean;
 import com.test.model.TestModel;
-import com.test.service.smo.ITestDemoSMO;
+import com.test.service.bmo.ILoginBMO;
 import org.apache.commons.collections.MapUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,15 +33,15 @@ import java.util.Map;
 /**
  * Created by tanzepeng on 2015/6/9.
  */
-@Controller("com.test.controller.TestController")
+@Controller("com.test.controller.LoginController")
 @RequestMapping("/login/*")
 public class LoginController {
 
     private static final Logger log = LoggerFactory.getLogger(LoginController.class);
 
     @Autowired
-    @Qualifier("com.test.service.smo.ITestDemoSMO")
-    private ITestDemoSMO testDemoSMO;
+    @Qualifier("com.test.service.smo.ILoginBMO")
+    private ILoginBMO loginBMO;
 
     @Autowired
     private MessageSource messageSource;
