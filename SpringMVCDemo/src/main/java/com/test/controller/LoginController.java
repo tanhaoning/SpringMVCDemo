@@ -1,16 +1,10 @@
 package com.test.controller;
 
-import com.al.common.utils.MapUtil;
-import com.spring.utils.DateUtil;
-import com.spring.utils.StringUtil;
 import com.test.annotation.AuthValid;
 import com.test.annotation.LogRecord;
 import com.test.common.Constant;
-import com.test.model.JsonBean;
 import com.test.model.SessionLoginUser;
-import com.test.model.TestModel;
 import com.test.service.bmo.ILoginBMO;
-import org.apache.commons.collections.MapUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,16 +15,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.Date;
-import java.util.Locale;
 import java.util.Map;
 
 /**
