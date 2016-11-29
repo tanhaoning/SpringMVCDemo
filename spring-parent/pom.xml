@@ -209,6 +209,7 @@
                 <version>${org.aspectj.version}</version>
             </dependency>
             <!-- 面向切面框架相关包 ##################end## -->
+            
             <!-- 二维码Jar -->
             <dependency>
                 <groupId>com.google.zxing</groupId>
