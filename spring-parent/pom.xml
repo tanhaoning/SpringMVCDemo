@@ -11,6 +11,8 @@
     <modules>
         <module>../spring-common</module>
         <module>../SpringMVCDemo</module>
+        <module>../spring-redis</module>
+        <module>../spring-dubbo-zookeeper</module>
     </modules>
     <name>spring-parent</name>
     <description>spring-parent</description>
@@ -24,7 +26,6 @@
     </properties>
     <dependencyManagement>
         <dependencies>
-
             <!-- Servlet -->
             <dependency>
                 <groupId>javax.servlet</groupId>
