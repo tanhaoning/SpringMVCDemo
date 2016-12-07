@@ -7,26 +7,28 @@ import java.io.Serializable;
  */
 public class SessionLoginUser implements Serializable {
 
-    /** Serializable */
+    /**
+     * Serializable
+     */
     private static final long serialVersionUID = 1L;
 
-    String userLoginCode;
+    private String username;
 
-    String userPassWord;
+    private String password;
 
-    public String getUserLoginCode() {
-        return userLoginCode;
+    public String getPassword() {
+        return password;
     }
 
-    public void setUserLoginCode(String userLoginCode) {
-        this.userLoginCode = userLoginCode;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public String getUserPassWord() {
-        return userPassWord;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserPassWord(String userPassWord) {
-        this.userPassWord = userPassWord;
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

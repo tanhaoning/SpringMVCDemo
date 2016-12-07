@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.test.service.dao.ITestDemoDAO">
+    <resultMap id="testResultMap" type="com.test.model.TestModel">
+        <id column="PARAM_ID" jdbcType="DECIMAL" property="paramId"/>
+    <result column="PARAM_CODE" jdbcType="VARCHAR" property="paramCode"/>
+    <result column="PARAM_NAME" jdbcType="VARCHAR" property="paramName"/>
+    <result column="GROUP_ID" jdbcType="DECIMAL" property="groupId"/>
+    <result column="PARAM_DESC" jdbcType="VARCHAR" property="paramDesc"/>
+    <result column="SORT_ORDER" jdbcType="DECIMAL" property="sortOrder"/>
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime"/>
+    <result column="ADD_TIME" jdbcType="TIMESTAMP" property="addTime"/>
+    <result column="PARAM_VALUE" jdbcType="VARCHAR" property="paramValue"/>
+</resultMap>
+
+    <select id="querySysParam" resultMap="testResultMap">
+        <![CDATA[
+	   select * from sp_sys_param t
+	]]>
+    </select>
+
+    <select id="queryCountNum" resultType="int">
+        <![CDATA[
+	   select count(*) from sp_sys_param t
+	]]>
+    </select>
+</mapper>

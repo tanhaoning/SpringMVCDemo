@@ -13,6 +13,7 @@
         <module>../SpringMVCDemo</module>
         <module>../spring-redis</module>
         <module>../spring-dubbo-zookeeper</module>
+        <module>../spring-mq</module>
     </modules>
     <name>spring-parent</name>
     <description>spring-parent</description>
@@ -23,6 +24,7 @@
         <ecs-common-freemarker-version>4.0.1-SNAPSHOT</ecs-common-freemarker-version>
         <springframework-version>3.1.2.RELEASE</springframework-version>
         <org.aspectj.version>1.6.12</org.aspectj.version>
+        <org.slf4j-version>1.6.2</org.slf4j-version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -167,7 +169,7 @@
                 <artifactId>commons-beanutils</artifactId>
                 <version>1.8.3</version>
             </dependency>
-            <!--<dependency>
+            <dependency>
                 <groupId>commons-logging</groupId>
                 <artifactId>commons-logging-api</artifactId>
                 <version>1.1</version>
@@ -176,7 +178,7 @@
                 <groupId>commons-logging</groupId>
                 <artifactId>commons-logging</artifactId>
                 <version>1.1.1</version>
-            </dependency>-->
+            </dependency>
             <dependency>
                 <groupId>commons-fileupload</groupId>
                 <artifactId>commons-fileupload</artifactId>
@@ -221,6 +223,86 @@
                 <groupId>com.google.zxing</groupId>
                 <artifactId>javase</artifactId>
                 <version>3.1.0</version>
+            </dependency>
+
+            <!-- json 依赖包 -->
+            <dependency>
+                <groupId>org.codehaus.jackson</groupId>
+                <artifactId>jackson-mapper-asl</artifactId>
+                <version>1.9.13</version>
+            </dependency>
+            <dependency>
+                <groupId>org.codehaus.jackson</groupId>
+                <artifactId>jackson-core-asl</artifactId>
+                <version>1.9.13</version>
+            </dependency>
+
+            <!-- xml 依赖包 -->
+            <dependency>
+                <groupId>dom4j</groupId>
+                <artifactId>dom4j</artifactId>
+                <version>1.6.1</version>
+            </dependency>
+
+            <dependency>
+                <groupId>jaxen</groupId>
+                <artifactId>jaxen</artifactId>
+                <version>1.1.1</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>xalan</groupId>
+                        <artifactId>xalan</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>xerces</groupId>
+                        <artifactId>xercesImpl</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>jamon</groupId>
+                <artifactId>jakarta-oro</artifactId>
+                <version>2.0.8</version>
+            </dependency>
+
+            <!-- log4j logback 依赖包 -->
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-core</artifactId>
+                <version>1.0.0</version>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>1.0.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${org.slf4j-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>jcl-over-slf4j</artifactId>
+                <version>${org.slf4j-version}</version>
+                <scope>runtime</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-log4j12</artifactId>
+                <version>${org.slf4j-version}</version>
+                <scope>runtime</scope>
+            </dependency>
+            <dependency>
+                <groupId>log4j</groupId>
+                <artifactId>log4j</artifactId>
+                <version>1.2.9</version>
+                <scope>runtime</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.codehaus.janino</groupId>
+                <artifactId>janino</artifactId>
+                <version>2.5.16</version>
             </dependency>
 
             <dependency>
