@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 主服务器 -->
+    <bean id="redisMaster" class="java.util.HashMap">
+        <constructor-arg>
+            <map>
+                <entry key="hostId" value="master"/>
+                <entry key="brokerURL" value="10.4.101.60"/>
+                <entry key="maxActive" value="5"/>
+                <entry key="maxIdle" value="5"/>
+                <entry key="port" value="6379"/>
+            </map>
+        </constructor-arg>
+    </bean>
+    <!-- 从服务器 -->
+    <bean id="redisSlave1" class="java.util.HashMap">
+        <constructor-arg>
+            <map>
+                <entry key="hostId" value="slave1"/>
+                <entry key="brokerURL" value="10.4.101.63"/>
+                <entry key="maxActive" value="5"/>
+                <entry key="maxIdle" value="5"/>
+                <entry key="port" value="6380"/>
+            </map>
+        </constructor-arg>
+    </bean>
+    <!-- 从服务器 -->
+    <bean id="redisSlave2" class="java.util.HashMap">
+        <constructor-arg>
+            <map>
+                <entry key="hostId" value="slave1"/>
+                <entry key="brokerURL" value="10.4.101.64"/>
+                <entry key="maxActive" value="5"/>
+                <entry key="maxIdle" value="5"/>
+                <entry key="port" value="6381"/>
+            </map>
+        </constructor-arg>
+    </bean>
+
+    <bean id="redisCache" class="com.cache.RedisCache">
+        
+    </bean>
+</beans>

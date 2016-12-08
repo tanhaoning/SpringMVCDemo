@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<properties>
+		<property name="dialect" value="oracle"/>
+	</properties>
+	<settings>
+		<!-- 
+		se Enables automatic mapping from classic
+		database column names A_COLUMN to camel case classic Java property names aColumn
+		 -->
+		<setting name="mapUnderscoreToCamelCase" value="true"/>
+	</settings>
+	<!-- 
+	<typeAliases>
+	</typeAliases>
+	 -->
+	<plugins>
+		<!-- 分页 -->
+		<!--<plugin interceptor="com.al.persistence.plugin.Pagination"/>-->
+		<!-- 分页求总条数 -->
+		<!--<plugin interceptor="com.al.persistence.plugin.AgentCountRowNumber" />-->
+		<!-- IBatis配置文件中常量支持 -->
+		<!--<plugin interceptor="com.al.persistence.plugin.ConstantInjector"/>-->
+		<!-- 字段自动映射到属性 使用mybatis自带的配置 -->
+		<!--<plugin interceptor="com.al.persistence.plugin.AutoResultMap" />-->
+		<!--<plugin interceptor="com.al.crm.nosql.cache.ibatis.QueryCachingExecutorPlugin">
+			<property name="configLocation" value="soConfig.properties"/>
+		</plugin>-->
+		<!-- test -->
+
+		<!-- 拦截SQL执行时间 -->
+		<plugin interceptor="com.ibatisPlugin.RoundingRunningTime">
+			<property name="prop1" value="prop1"/>
+			<property name="prop2" value="prop2"/>
+		</plugin>
+	</plugins>
+</configuration>

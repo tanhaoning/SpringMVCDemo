@@ -15,7 +15,7 @@
     <style type="text/css">
         body {
             padding-bottom: 40px;
-            background-image: url("../image/background.jpg");
+            background-image: url("../image/833.jpg");
         }
 
         .sidebar-nav {
@@ -66,7 +66,7 @@
                 <div class="alert alert-info">
                     Please login with your Username and Password.
                 </div>
-                <form class="form-horizontal" method="get">
+                <form class="form-horizontal" method="post" action="${contextPath}/login/home">
                     <fieldset>
                         <div class="input-prepend" title="Username" data-rel="tooltip">
                             <span class="add-on"><i class="icon-user"></i></span>
@@ -95,7 +95,7 @@
 
                         <p class="center span5">
                             <button type="submit" class="btn btn-primary">Login</button>
-                            <button type="button" class="btn btn-primary" id="loginId">Redirect</button>
+                            <!--<button type="button" class="btn btn-primary" id="loginId">Redirect</button>-->
                         </p>
                     </fieldset>
                 </form>

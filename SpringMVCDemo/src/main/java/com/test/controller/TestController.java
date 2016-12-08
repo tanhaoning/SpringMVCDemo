@@ -16,10 +16,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -46,9 +43,16 @@ public class TestController {
 
     @AuthValid(validate = false)
     @LogRecord(isSwitch = false)
-    @RequestMapping(value = "/login", method = {RequestMethod.GET, RequestMethod.POST})
-    public String login(@RequestParam Map<String, Object> paramMap, Model model, HttpServletRequest request) {
-        log.debug("!!!!!!!!!!!!!!!!!!!![/test.js/login]!!!!!!!!!!!!!!!!!!!");
+    @RequestMapping(value = "/index", method = RequestMethod.GET)
+    public String index(@RequestParam Map<String, Object> paramMap, Model model, HttpServletRequest request) {
+        model.addAttribute("session", request.getSession().getId());
+        return "/bootstrap/login";
+    }
+
+    @AuthValid(validate = false)
+    @LogRecord(isSwitch = false)
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public String login(@RequestBody Map<String, Object> paramMap, Model model, HttpServletRequest request) {
         if (!MapUtils.isEmpty(paramMap) && paramMap.containsKey("areaId")) {
             String areaId = MapUtils.getString(paramMap, "areaId");
             log.info("[areaId={}]", areaId);
@@ -60,13 +64,8 @@ public class TestController {
         DateUtil.getFormatTimeString(new Date(), "yyyy-dd-mm");
         model.addAttribute("session", request.getSession().getId());
         //request.getSession().invalidate();
-        return "/bootstrap/login";
-        //return "redirect:/test.js/queryTestInfo";
-    }
-
-    @RequestMapping(value = "/redirectNewPage", method = {RequestMethod.GET})
-    public String redirectNewPage(Model model, HttpServletRequest request, HttpServletResponse response) {
         return "/player";
+        //return "redirect:/test.js/queryTestInfo";
     }
 
     @RequestMapping(value = "/getPlayResource", method = {RequestMethod.GET})
@@ -78,7 +77,7 @@ public class TestController {
             String param = request.getParameter("test");
             String msg = request.getParameter("msg");
             String dir = "play_list.txt";
-            InputStream inputStream  = this.getClass().getClassLoader().getResourceAsStream(dir);
+            InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream(dir);
             //String fileDir = this.getClass().getClassLoader().getResource(dir).getFile();
             /*File file = new File(fileDir);
             if (!file.exists()) {
