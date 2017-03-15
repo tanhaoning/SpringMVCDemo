@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bookstore>
+    <book category="操作系统">
+        <title lang="中文">鸟哥的私房菜</title>
+        <author>鸟哥</author>
+        <year>2005</year>
+        <price>89.5</price>
+    </book>
+</bookstore>
