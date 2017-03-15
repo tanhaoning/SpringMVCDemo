@@ -33,7 +33,7 @@ public class SpringContextUtil implements ApplicationContextAware {
 
     @PostConstruct
     public void contextInitialized() {
-        System.out.println("*********applicationContext=" + applicationContext);
+        //System.out.println("*********applicationContext=" + applicationContext);
     }
 
     /**

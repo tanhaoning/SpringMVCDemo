@@ -8,6 +8,8 @@ public class TestBean {
     String id;
     String name;
 
+    RefObject refObject;
+
     public String getId() {
         return id;
     }
@@ -22,5 +24,13 @@ public class TestBean {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public RefObject getRefObject() {
+        return refObject;
+    }
+
+    public void setRefObject(RefObject refObject) {
+        this.refObject = refObject;
     }
 }

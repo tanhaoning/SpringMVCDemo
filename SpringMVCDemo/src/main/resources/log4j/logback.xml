@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <configuration>
+    <!--<statusListener class="" />-->
     <substitutionProperty name="log.base" value="logs/LteService"/>
     <jmxConfigurator/>
     <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
@@ -42,10 +43,18 @@
 
     <!-- false 表示此loger的打印信息不再向上级传递 -->
     <root level="ERROR"/>
-    <logger name="com.test.controller" level="DEBUG" additivity="false">
+    <logger name="com.test.controller" level="INFO" additivity="false">
         <appender-ref ref="stdout"/>
     </logger>
-    <logger name="com.web" level="ERROR" additivity="false">
+    <logger name="com.web" level="INFO" additivity="false">
+        <appender-ref ref="stdout"/>
+    </logger>
+    <!-- dubbo 前提配置dubbo的日志解析适配器为slf4j才能被管理-->
+    <logger name="com.alibaba.dubbo" level="ERROR" additivity="false">
+        <appender-ref ref="stdout"/>
+    </logger>
+    <!-- zookeeper-->
+    <logger name="org.apache.zookeeper" level="WARN" additivity="false">
         <appender-ref ref="stdout"/>
     </logger>
 

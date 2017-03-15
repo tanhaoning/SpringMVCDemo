@@ -10,9 +10,9 @@
     <META HTTP-EQUIV="Expires" CONTENT="0">
     <link rel="shortcut icon" href="${pageContext.request.contextPath}/image/bootstrap/cancel-on.png"/>
     <link rel="stylesheet" type="text/css"/>
-    <script type="text/javascript">
-        var contextPath = "${pageContext.request.contextPath}";
-    </script>
+    <%-- <script type="text/javascript">
+         var contextPath = "${pageContext.request.contextPath}";
+     </script>--%>
     <style>
         * {
             margin: 0;
@@ -214,10 +214,15 @@
         <div class="c1"><img src="${pageContext.request.contextPath}/image/404/01.png" class="img1"/></div>
         <h2>哎呀…您访问的页面不存在</h2>
 
-        <div class="c2"><a href="http://www.moke8.com" class="re">返回论坛</a><a href="${pageContext.request.contextPath}" class="home">网站首页</a><a
-                href="http://www.moke8.com" class="sr">搜索一下页面相关信息</a></div>
-        <div class="c3"><a href="http://www.moke8.com" class="c3">魔客吧</a>提醒您 - 您可能输入了错误的网址，或者该网页已删除或移动</div>
+        <div class="c2">
+            <%--<a href="http://www.moke8.com" class="re">返回论坛</a>--%>
+            <a href="${pageContext.request.contextPath}" class="home">网站首页</a>
+            <%--<a href="http://www.moke8.com" class="sr">搜索一下页面相关信息</a></div>--%>
+            <div class="c3">
+                <%--<a href="http://www.moke8.com" class="c3">魔客吧</a>--%>
+                提醒您 - 您可能输入了错误的网址，或者该网页已删除或移动
+            </div>
+        </div>
     </div>
-</div>
 </body>
 </html>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+
+    <bean id="address" class="com.dubbo.ioc.bean.Address">
+        <property name="city" value="changsha"></property>
+    </bean>
+
+    <bean id="user" class="com.dubbo.ioc.bean.User">
+        <property name="userName" value="tanzp"/>
+        <property name="address" ref="address"/>
+    </bean>
+
+</beans>

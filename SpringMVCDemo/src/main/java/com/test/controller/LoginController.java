@@ -1,14 +1,10 @@
 package com.test.controller;
 
-import com.alibaba.dubbo.config.annotation.Reference;
-import com.dubbo.rpc.ILogin;
-import com.spring.utils.SpringContextUtil;
 import com.test.annotation.AuthValid;
 import com.test.annotation.LogRecord;
 import com.test.common.Constant;
 import com.test.model.SessionLoginUser;
 import com.test.service.bmo.LoginService;
-import org.eclipse.core.runtime.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -66,8 +61,13 @@ public class LoginController {
         Map<String, Object> inParam = new HashMap<String, Object>();
         inParam.put("username", loginUser.getUsername());
         inParam.put("password", loginUser.getPassword());
-
-        String retJson = loginService.checkLogin(inParam);
+        String retJson = "";
+        try {
+            retJson = loginService.checkLogin(inParam);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "/player";
+        }
         if (!"OK".equals(retJson)) {
             return "/error/404";
         }

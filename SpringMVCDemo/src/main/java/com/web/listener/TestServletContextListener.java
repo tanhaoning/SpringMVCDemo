@@ -14,7 +14,9 @@ public class TestServletContextListener implements ServletContextListener {
     private final static Logger log = LoggerFactory.getLogger(TestServletContextListener.class);
 
     public void contextInitialized(ServletContextEvent sce) {
-        log.info("=======contextInitialized:[{}]", sce.getServletContext().getContextPath());
+        log.info("Set dubbo log factory by slf4j");
+        // 设置dubbo日志解析适配器为slf4j
+        System.setProperty("dubbo.application.logger", "slf4j");
     }
 
     public void contextDestroyed(ServletContextEvent sce) {

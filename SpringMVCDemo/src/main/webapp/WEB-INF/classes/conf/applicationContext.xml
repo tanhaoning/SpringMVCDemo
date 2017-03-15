@@ -8,7 +8,7 @@
        http://www.springframework.org/schema/context/spring-context-3.1.xsd">
 
     <!-- dubbo消费者配置 -->
-    <import resource="classpath:rpc/spring-dubbo-consumer.xml"/>
+    <!--<import resource="classpath:rpc/spring-dubbo-consumer.xml"/>-->
 
     <!-- 不扫描带有@Controller注解的类。因为这些类已经随容器启动时，在servlet-context中扫描过一遍了 -->
     <context:component-scan base-package="com.test,com.spring" use-default-filters="false">

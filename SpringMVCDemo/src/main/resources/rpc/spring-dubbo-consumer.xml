@@ -8,7 +8,7 @@
         http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
     <!-- 使用注解方式暴露接口 -->
-    <dubbo:annotation package="com.test.service.bmo" />
+    <dubbo:annotation package="com.test.service.bmo"/>
     <!-- 消费:Consumer -->
     <!-- consumer application name -->
     <dubbo:application name="SpringMVCDemo_consumer"/>

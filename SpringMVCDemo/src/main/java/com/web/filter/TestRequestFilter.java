@@ -29,12 +29,12 @@ public class TestRequestFilter extends OncePerRequestFilter {
 
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
-        log.debug("!!!!!!!!!!!!!!!!!!!![shouldNotFilter=" + urlPathHelper.getOriginatingRequestUri(request).substring(request.getContextPath().length()) + "]!!!!!!!!!!!!!!!!!!!");
-        log.debug("request.getScheme()=[{}]", request.getScheme());
-        log.debug("request.getHeader('host')=[{}]", request.getHeader("host"));
-        log.debug("request.getMethod()=[{}]", request.getMethod());
-        log.debug("request.getContextPath()=[{}]", request.getContextPath());
-        log.debug("xxxxxxx[{}],[{}]", new String[]{urlPathHelper.getRequestUri(request), "123"});
+        log.info("!!!!!!!!!!!!!!!!!!!![shouldNotFilter=" + urlPathHelper.getOriginatingRequestUri(request).substring(request.getContextPath().length()) + "]!!!!!!!!!!!!!!!!!!!");
+        log.info("request.getScheme()=[{}]", request.getScheme());
+        log.info("request.getHeader('host')=[{}]", request.getHeader("host"));
+        log.info("request.getMethod()=[{}]", request.getMethod());
+        log.info("request.getContextPath()=[{}]", request.getContextPath());
+        log.info("xxxxxxx[{}],[{}]", new String[]{urlPathHelper.getRequestUri(request), "123"});
         return super.shouldNotFilter(request);
     }
 

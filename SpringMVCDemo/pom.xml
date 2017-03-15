@@ -223,6 +223,17 @@
             <version>${org.slf4j-version}</version>
             <scope>runtime</scope>
         </dependency>
+        <!--
+          https://issues.apache.org/jira/browse/ZOOKEEPER-1371
+          zookeeper Remove dependency on log4j in the source code.
+          slf4j-log4j12会与log4j-over-slf4j循环依赖导致冲突
+        -->
+        <!--<dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>log4j-over-slf4j</artifactId>
+            <version>1.6.4</version>
+            <scope>runtime</scope>
+        </dependency>-->
         <!--<dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
@@ -394,18 +405,32 @@
             <artifactId>netty</artifactId>
             <version>3.2.9.Final</version>
         </dependency>
+        <!-- zookeeper dependency -->
         <dependency>
             <groupId>com.101tec</groupId>
             <artifactId>zkclient</artifactId>
             <version>0.4</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>log4j</groupId>
+                    <artifactId>log4j</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
-
-        <!-- zookeeper dependency -->
         <dependency>
             <groupId>org.apache.zookeeper</groupId>
             <artifactId>zookeeper</artifactId>
             <version>3.4.5</version>
-            <type>pom</type>
+            <exclusions>
+                <exclusion>
+                    <groupId>log4j</groupId>
+                    <artifactId>log4j</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-log4j12</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
     <build>
