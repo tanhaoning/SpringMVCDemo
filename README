@@ -10,3 +10,5 @@ $ git status
      nothing added to commit but untracked files present (use "git add" to track)
      This is master.
      this is slave HEAD.
+
+     update in linux ,test.haha
