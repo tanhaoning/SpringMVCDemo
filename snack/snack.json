@@ -1,0 +1,59 @@
+{ 
+	"basePath" : "../../" ,
+	"onLine" : true ,
+	"projects" : [
+		{
+		    "name" : "so-view" ,
+		    "base" : "src/main/java/com/asiainfo/crm",
+		    "js" : {
+				"paths" : [
+					{
+						"source" : "so",
+						"filter" : "**/*",
+						"target" : "app",
+					  	"minify" : true
+					}
+				]
+		    },
+		    "css" : {
+				"paths" : [
+					{
+						"source" : "so",
+						"filter" : "**/*",
+						"target" : "app",
+					  	"minify" : true
+					}
+				]
+		    },
+		  	"html" : {
+				"paths" : [
+					{
+						"source" : "so",
+						"filter" : "**/*",
+						"target" : "app",
+					  	"minify" : true
+					}
+				]
+		  	}
+		},
+		{
+			"name" : "common-view" ,
+			"base" : "src/main/java/com/asiainfo/crm",
+			"js" : {
+				"paths" : [
+					{
+						"source" : "vita/biz",
+						"filter" : "widget.biz4b.extend",
+						"minify" : true
+					},
+					{
+						"source" : "vita/function",
+						"filter" : ["datetime","dialog","popup","loading","pageUtil","SoComp","soUtil"],
+						"fileName" : "vita-local-function",
+						"minify" : true
+					}
+				]
+			}
+		}
+	]
+}
